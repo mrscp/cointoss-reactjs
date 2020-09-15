@@ -7,3 +7,11 @@
   vertical-align: baseline;
   width: 280px;
 }
+
+.ptb-100 {
+  padding: 100px 0px;
+}
+
+.radio-text {
+  width: 50px;
+}
