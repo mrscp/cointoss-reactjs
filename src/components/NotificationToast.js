@@ -16,7 +16,6 @@ export default class NotificationToast extends Component {
     }
 
     removeToast = () => {
-        console.log("removing " + this.props.index);
         this.props.remove(this.props.index);
     }
 
