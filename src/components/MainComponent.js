@@ -51,7 +51,9 @@ export default class MainComponent extends Component {
                         <h2 className="text-center">Coin Toss Recognition</h2>
                     </Col>
                 </Row>
-
+            </Container>
+            <hr />
+            <Container>
                 <DisplayRecognition addNotification={this.addNotification} />
             </Container>
             <div className="notification">

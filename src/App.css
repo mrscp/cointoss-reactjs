@@ -15,3 +15,9 @@
 .radio-text {
   width: 50px;
 }
+
+@media (max-width: 768px) {
+  .ptb-100 {
+    padding: 20px 0px;
+  }
+}

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import {Col, Row, Image, Button, Form} from 'react-bootstrap';
-import Camera from 'react-html5-camera-photo';
-import 'react-html5-camera-photo/build/css/index.css';
 import * as tf from '@tensorflow/tfjs';
 import { GoogleSpreadsheet } from "google-spreadsheet";
+import WebCam from './WebCam';
 
 
 export default class DisplayRecognition extends Component {
@@ -68,6 +67,7 @@ export default class DisplayRecognition extends Component {
     };
 
     recognize = async () => {
+        this.props.addNotification({title: "Recognizing", body: "Please wait while it is recognizing the photo. It might take several minutes for first time."});
         this.setState({
             wait: true
         });
@@ -119,7 +119,8 @@ export default class DisplayRecognition extends Component {
             <Row className="mt-5">
                 <Col xs={12} md={4}>
                     <Image ref={this.image} src={this.state.image} thumbnail />
-                    <Form.Group className="mt-3">
+                    <WebCam handleTakePhoto={this.handleTakePhoto} />
+                    <Form.Group className="mt-2">
                         <Form.File onChange={this.handleOnChange} />
                     </Form.Group>
                 </Col>
@@ -133,11 +134,6 @@ export default class DisplayRecognition extends Component {
                     <div className="ptb-100">
                         <Button variant="primary" disabled={this.state.wait} onClick={this.submit}>Submit</Button>
                     </div>
-                </Col>
-            </Row>
-            <Row className="mt-5">
-                <Col>
-                    <Camera onTakePhoto={(imageUri) => {this.handleTakePhoto(imageUri)}} />
                 </Col>
             </Row>
         </div>
