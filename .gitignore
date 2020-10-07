@@ -24,3 +24,6 @@ yarn-error.log*
 
 # model files
 public/json/
+
+.env
+.idea
